@@ -189,7 +189,13 @@ class _FormPageState extends State<FormPage> with SingleTickerProviderStateMixin
       // showDialog(context: context, builder: (BuildContext context) {
       //   return AlertDialog(title: Text('FUCK'),);
       // });
+      // print('focus status: ' + _focusNode.hasFocus.toString());
       if(_controller.status == AnimationStatus.dismissed) {
+        if(_focusNode.hasFocus) {
+          // if user hides keyboard by force, it must remove the focus status in order to fix keyboard bug.
+          FocusScope.of(context).requestFocus(FocusNode());
+        }
+        // print('focus status2: ' + _focusNode.hasFocus.toString());
         _controller.forward();
       }
     };
