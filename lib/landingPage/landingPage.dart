@@ -20,6 +20,10 @@ class LandingPage extends StatelessWidget {
                 onPressed: _onBtnJumpFormPageClickListener(context),
                 child: Text('Jump to Form Page'),
               ),
+              RaisedButton(
+                onPressed: _onBtnJumpScrollPageClickListener(context),
+                child: Text('Jump to Scroll Page'),
+              ),
             ],
           )
         )
@@ -36,6 +40,12 @@ class LandingPage extends StatelessWidget {
   Function _onBtnJumpFormPageClickListener(BuildContext context) {
     return () {
       Navigator.of(context).pushNamed('/formPage');
+    };
+  }
+
+  Function _onBtnJumpScrollPageClickListener(BuildContext context) {
+    return () {
+      Navigator.of(context).pushNamed('/scrollPage');
     };
   }
 }
